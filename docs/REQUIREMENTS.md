@@ -1,6 +1,6 @@
 # Translate4Deen — Requirements
 
-Version: 0.2  
+Version: 0.3  
 Date: 2026-09-14  
 Status: Discussion draft; not an approved implementation baseline  
 Product owner: Mehdi Syed  
@@ -227,6 +227,32 @@ A knowledgeable Arabic reviewer or checked reference set is needed for credible 
 
 ## 13. GitHub workflow and planned documentation
 
+### Confirmed requirements-review workflow
+
+The user requested stage-by-stage discussion, ongoing updates to this document, and all upcoming changes on a single branch for the user to merge later.
+
+- Working branch: `docs/requirements-refinement`.
+- Keep one draft pull request for the entire requirements refinement cycle; append commits after each set of decisions.
+- Do not merge or enable auto-merge; the user will merge when ready.
+- Update the affected requirement rows, acceptance criteria, open decisions, and change log together. Explicitly distinguish confirmed answers from suggestions and unresolved questions.
+- Read the latest branch content before editing and preserve intervening user changes.
+- PR #1 established the initial draft and was merged before this refinement cycle; its original branch was deleted. This working branch starts from the merged baseline.
+
+### Discussion progress
+
+| Stage | Topic | Status | Decisions to settle |
+| --- | --- | --- | --- |
+| 1 | Capture and saving | In discussion | Capture history/default retention, Save interaction, close/delete behavior, interrupted captures |
+| 2 | Reading experience | Pending | Floating result/workspace, bilingual placement, alignment controls, corrections, selecting reports |
+| 3 | Translation behavior | Pending | Profiles, narrator chains, honorifics, missing text, ambiguity, commentary |
+| 4 | Glossary and root analysis | Pending | Word details, editable fields, override scope, protection, revisions, sources |
+| 5 | Organization and portability | Pending | Collections/tags, metadata, search, import/export, PDF limits, backups |
+| 6 | AI connections and costs | Pending | Initial integrations, key setup, model choice, limits, retries/fallback, usage display |
+| 7 | Quality expectations | Pending | Latency/cost targets, material errors, historical evidence, evaluation protocol |
+| 8 | Technical design | Pending | Hardware/OS support, frontend/backend, database, OCR, AI adapters, security, testing, distribution |
+
+Stage 1 has no confirmed lifecycle decisions yet. Recent proposals included both explicit-save-only behavior and automatic local capture history with a separate curated library. Neither proposal has been selected; OPEN-002 remains open. Early hardware or evaluation questions may be raised before Stage 8 if needed to assess feasibility.
+
 Proposed repository documents:
 
 | Path | Purpose |
@@ -252,7 +278,7 @@ The repository contains a README and this requirements draft. The remaining docu
 
 | Milestone | Outcome | Exit condition |
 | --- | --- | --- |
-| M0 — Requirements baseline | Agree on core behavior and repository setup | Resolve blocking scope questions; commit reviewed v0.2 |
+| M0 — Requirements baseline | Agree on core behavior and repository setup | Resolve blocking scope questions; user reviews and merges the requirements refinement PR |
 | M1 — Extraction/translation experiment | Compare real samples before choosing engines | Record costs/errors/latency and choose initial candidate pipeline |
 | M2 — UX and architecture | Clickable flow and documented stack decisions | Review capture, reading, glossary, saving, and quota behavior |
 | M3 — Vertical slice | Capture → translate → save → reopen on macOS | Runs with a user key and preserves source alignment |
@@ -265,3 +291,4 @@ The repository contains a README and this requirements draft. The remaining docu
 | --- | --- | --- |
 | 0.1 | 2026-09-14 | Initial draft from the project discussion. Confirmed decisions separated from proposed behavior, scope, acceptance criteria, architecture boundaries, and open questions. GitHub repository not yet selected or created. |
 | 0.2 | 2026-09-14 | Adopted Translate4Deen as the project name, recorded the supplied repository and its current public visibility, resolved OPEN-001, and prepared the draft for repository review. Product behavior remains under discussion. |
+| 0.3 | 2026-09-14 | Recorded the user-directed single-branch, user-merged workflow and eight-stage discussion tracker. Began Stage 1; capture retention and saving behavior remain unresolved. |
